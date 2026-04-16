@@ -1,0 +1,14 @@
+services:
+  parser:
+    build: .
+    environment:
+      # Reads ANTHROPIC_API_KEY from the host environment or a .env file
+      # in the same directory as this docker-compose.yml.
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    volumes:
+      # Host ./docs folder is mounted read-only at /docs inside the container.
+      # Pass files to the parser using the /docs/<filename> path.
+      - ./docs:/docs:ro
+    # Default: print help. Override at run time:
+    #   docker compose run --rm parser /docs/invoice.pdf --pretty
+    command: ["--help"]

@@ -1,0 +1,14 @@
+venv/
+docs/
+.env
+.env.example
+*.md
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.pdf
+__pycache__/
+*.pyc
+.git/
